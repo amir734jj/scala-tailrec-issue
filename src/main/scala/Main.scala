@@ -58,7 +58,7 @@ class M_LOCAL_FIBER_CYCLE_OLD_STATIC[T_T](name : String,val t_T : C_TYPE[T_T] wi
       val node = v_sc;
       node match {
         case p_context(_, v_0) => {
-          v1_result = f_index_scope(a_ptr.get(v_sc), new M__basic_4[T_Integer](t_Integer).v__op_u(v_i, 1));
+          return f_index_scope(a_ptr.get(v_sc), new M__basic_4[T_Integer](t_Integer).v__op_u(v_i, 1));
         }
         case _ => {
         }
