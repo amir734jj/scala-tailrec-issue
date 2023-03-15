@@ -50,21 +50,17 @@ class M_LOCAL_FIBER_CYCLE_OLD_STATIC[T_T](name : String,val t_T : C_TYPE[T_T] wi
   }
 
   @tailrec
-  def f_index_scope(v_sc: T_ContextPtr, v_i: T_Integer): T_ContextPtr = {
-    var v1_result: T_ContextPtr = null.asInstanceOf[T_ContextPtr];
+  final /*private*/ def f_index_scope(v_sc: T_ContextPtr, v_i: T_Integer): T_ContextPtr = {
     if (v_or(new M__basic_2[T_ContextPtr](t_ContextPtr).v__op_0(v_sc, new M__basic_8[T_ContextPtr](t_ContextPtr).v_nil), new M__basic_2[T_Integer](t_Integer).v__op_0(v_i, 0))) {
-      v1_result = v_sc;
+      v_sc
     } else {
-      val node = v_sc;
-      node match {
-        case p_context(_, v_0) => {
-          return f_index_scope(a_ptr.get(v_sc), new M__basic_4[T_Integer](t_Integer).v__op_u(v_i, 1));
-        }
-        case _ => {
-        }
+      v_sc match {
+        case p_context(_, _) =>
+          f_index_scope(a_ptr.get(v_sc), new M__basic_4[T_Integer](t_Integer).v__op_u(v_i, 1))
+        case _ =>
+          null
       }
     }
-    return v1_result;
   }
 }
 
